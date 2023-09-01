@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: marview
+      POSTGRES_USER: marview
+      POSTGRES_PASSWORD: marview
+    ports:
+      - '5431:5432' # Avoid conflicts
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: pg_isready -d marview -U marview
+      interval: 5s
+      timeout: 10s
+      retries: 10
+volumes:
+  db:
+    driver: local
