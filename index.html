@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Marview ENC Prototype</title>
-    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" />
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
 </head>
 
 <body>
@@ -18,6 +18,48 @@
             style: 'https://demotiles.maplibre.org/style.json',
             center: [0, 0],
             zoom: 1
+        });
+        map.on('style.load', () => {
+            map.addLayer({
+                id: 'area',
+                type: 'fill',
+                source: {
+                    type: 'vector',
+                    url: 'http://localhost:3000/area'
+                },
+                'source-layer': 'area',
+                paint: {
+                    'fill-color': 'black',
+                    'fill-opacity': 0.1,
+                },
+            });
+
+            map.addLayer({
+                id: 'point',
+                type: 'circle',
+                source: {
+                    type: 'vector',
+                    url: 'http://localhost:3000/point'
+                },
+                'source-layer': 'point',
+                paint: {
+                    'circle-color': 'red',
+                    'circle-radius': 3,
+                },
+            });
+
+            map.addLayer({
+                id: 'line',
+                type: 'line',
+                source: {
+                    type: 'vector',
+                    url: 'http://localhost:3000/line'
+                },
+                'source-layer': 'line',
+                paint: {
+                    'line-color': 'blue'
+                },
+            });
         });
     </script>
 </body>
