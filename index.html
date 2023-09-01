@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Marview ENC Prototype</title>
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" />
+</head>
+
+<body>
+    <div id="map" style="height: 1024px"></div>
+    <script>
+        var map = new maplibregl.Map({
+            container: 'map',
+            style: 'https://demotiles.maplibre.org/style.json',
+            center: [0, 0],
+            zoom: 1
+        });
+    </script>
+</body>
+
+</html>
