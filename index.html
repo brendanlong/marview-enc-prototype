@@ -36,16 +36,15 @@
 
             map.addLayer({
                 id: 'point',
-                type: 'circle',
+                type: 'symbol',
+                layout: {
+                    'text-field': ['get', 'lnam'],
+                },
                 source: {
                     type: 'vector',
                     url: 'http://localhost:3000/point'
                 },
                 'source-layer': 'point',
-                paint: {
-                    'circle-color': 'red',
-                    'circle-radius': 3,
-                },
             });
 
             map.addLayer({
