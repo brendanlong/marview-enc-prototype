@@ -19,3 +19,9 @@ Note that for S57 format you will need to set this environment variable:
 ```
 export 57_CSV=/usr/local/Cellar/gdal/3.7.1_2/share/gdal
 ```
+
+Example GDAL command to load features from NOAA S57 data:
+
+```bash
+S57_CSV=/usr/local/Cellar/gdal/3.7.1_2/share/gdal ogr2ogr -f PostgreSQL postgresql://marview:marview@localhost:5431/marview ~/Downloads/ENC_ROOT/US4AL11M/US4AL11M.000 -skipfailures -nlt PROMOTE_TO_MULTI -lco OVERWRITE=YES -lco PRECISION=YES
+```
